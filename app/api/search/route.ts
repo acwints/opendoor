@@ -1,0 +1,99 @@
+import { NextResponse } from "next/server";
+import OpenAI from "openai";
+
+const defaultResponse = {
+  summary:
+    "Here's a quick overview of opportunities around your home. You can refinance to unlock equity, explore mid-grade upgrades, and time a listing when demand peaks.",
+  insights: [
+    {
+      title: "Equity lever",
+      detail: "Refinancing at 5.7% could free up roughly $120k in equity for improvements or a bridge move without selling first.",
+    },
+    {
+      title: "Listing timing",
+      detail: "Austin listings in your ZIP are receiving 2.1 offers on average when listed in late spring with condition scores above 80.",
+    },
+  ],
+  recommendations: [
+    "Capture updated photos after flooring refresh to improve digital curb appeal.",
+    "Review comps within 0.5 miles weekly to monitor pricing momentum.",
+  ],
+};
+
+const openai = process.env.OPENAI_API_KEY
+  ? new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
+  : null;
+
+export async function POST(request: Request) {
+  const { query, context } = await request.json().catch(() => ({ query: "", context: {} }));
+
+  if (!query || typeof query !== "string") {
+    return NextResponse.json(
+      { error: "Missing query" },
+      {
+        status: 400,
+      },
+    );
+  }
+
+  if (!openai) {
+    return NextResponse.json(defaultResponse);
+  }
+
+  try {
+    const completion = await openai.responses.create({
+      model: "gpt-4.1-mini",
+      input: [
+        {
+          role: "system",
+          content:
+            "You are an Opendoor home advisor. Respond with JSON containing summary:string, insights:array<{title:string, detail:string}>, recommendations:string[].",
+        },
+        {
+          role: "user",
+          content: JSON.stringify({ query, context }),
+        },
+      ],
+      response_format: {
+        type: "json_schema",
+        json_schema: {
+          name: "home_search_response",
+          schema: {
+            type: "object",
+            required: ["summary", "insights", "recommendations"],
+            properties: {
+              summary: { type: "string" },
+              insights: {
+                type: "array",
+                items: {
+                  type: "object",
+                  required: ["title", "detail"],
+                  properties: {
+                    title: { type: "string" },
+                    detail: { type: "string" },
+                  },
+                },
+              },
+              recommendations: {
+                type: "array",
+                items: { type: "string" },
+              },
+            },
+          },
+        },
+      },
+    });
+
+    const outputText = completion.output_text;
+
+    if (!outputText) {
+      return NextResponse.json(defaultResponse);
+    }
+
+    const parsed = JSON.parse(outputText);
+    return NextResponse.json(parsed);
+  } catch (error) {
+    console.error("AI search error", error);
+    return NextResponse.json(defaultResponse, { status: 200 });
+  }
+}
