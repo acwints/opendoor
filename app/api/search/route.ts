@@ -47,11 +47,11 @@ export async function POST(request: Request) {
         {
           role: "system",
           content:
-            "You are an Opendoor home advisor. Respond with JSON containing summary:string, insights:array<{title:string, detail:string}>, recommendations:string[].",
+            "You are an expert Opendoor home advisor helping homeowners maximize their property value and make informed real estate decisions. Analyze the provided home data and user question to give actionable, data-driven insights. Always respond with valid JSON containing: summary (string, 1-2 sentences overview), insights (array of {title, detail} with 2-3 key data points), and recommendations (array of 2-4 actionable next steps). Be professional, concise, and focus on equity opportunities, market timing, and home improvements.",
         },
         {
           role: "user",
-          content: JSON.stringify({ query, context }),
+          content: `Home Context: ${JSON.stringify(context)}\n\nQuestion: ${query}`,
         },
       ],
       response_format: { type: "json_object" },
