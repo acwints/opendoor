@@ -47,7 +47,7 @@ export function DashboardNav({ activeTab, onTabChange, className, ...props }: Da
     <nav
       {...props}
       className={cn(
-        "mx-auto w-full max-w-3xl rounded-2xl border border-border/70 bg-white/85 shadow-sm backdrop-blur",
+        "mx-auto w-full max-w-3xl rounded-2xl border bg-card shadow-sm",
         className
       )}
       aria-label="Home dashboard sections"
@@ -65,7 +65,7 @@ export function DashboardNav({ activeTab, onTabChange, className, ...props }: Da
                 "w-full rounded-full px-4 py-2 text-center text-sm font-medium transition",
                 activeTab === tab.id
                   ? "bg-primary text-white shadow"
-                  : "bg-white/70 text-muted-foreground hover:bg-white"
+                  : "bg-transparent text-muted-foreground hover:bg-muted/50"
               )}
             >
               {tab.label}
@@ -111,10 +111,8 @@ export function DashboardTabs({ data, previousValue, confidenceScore, activeTab 
             condition={data.condition}
           />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-1">
-            <Card className="relative overflow-hidden border-none bg-white/85 shadow-xl backdrop-blur">
-              <span className="pointer-events-none absolute -right-20 top-[-80px] h-48 w-48 rounded-full bg-primary/15 blur-2xl" />
-              <span className="pointer-events-none absolute -bottom-24 left-10 h-40 w-40 rounded-full bg-emerald-300/20 blur-2xl" />
-              <CardHeader className="relative z-10 gap-2">
+            <Card className="relative overflow-hidden border bg-card shadow-lg">
+              <CardHeader className="gap-2">
                 <div className="flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-primary">
                   Confidence Score
                 </div>
@@ -125,7 +123,7 @@ export function DashboardTabs({ data, previousValue, confidenceScore, activeTab 
                   Based on nearby comps and recent condition assessments.
                 </CardDescription>
               </CardHeader>
-              <CardContent className="relative z-10 space-y-5">
+              <CardContent className="space-y-5">
                 <div className="flex items-end justify-between">
                   <div>
                     <span className="text-5xl font-semibold text-foreground">
@@ -145,7 +143,7 @@ export function DashboardTabs({ data, previousValue, confidenceScore, activeTab 
                   <span>Last refresh · 2 days ago</span>
                 </div>
               </CardContent>
-              <CardFooter className="relative z-10 border-t border-primary/10 bg-primary/5 text-xs text-muted-foreground">
+              <CardFooter className="border-t border-border bg-muted/30 text-xs text-muted-foreground">
                 Appears accurate based on three recent sales within 0.4 miles.
               </CardFooter>
             </Card>

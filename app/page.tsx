@@ -30,7 +30,7 @@ export default function Home() {
   } satisfies Record<string, unknown>;
 
   return (
-    <main className="relative min-h-screen bg-[radial-gradient(circle_at_top,_#e8f0ff,_transparent_52%),linear-gradient(180deg,#f6f9ff_0%,#eef2fb_100%)]">
+    <main className="relative min-h-screen bg-background">
       {coverImage && (
         <section className="relative h-[360px] w-full overflow-hidden sm:h-[400px] lg:h-[440px]">
           <Image
@@ -41,16 +41,16 @@ export default function Home() {
             priority
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/35 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-transparent" />
           <div className="relative z-10 mx-auto flex h-full w-full max-w-6xl flex-col justify-between px-6 py-6 lg:px-10 lg:py-8">
             <div className="grid grid-cols-[auto_1fr_auto] items-center gap-3 text-white">
-              <p className="text-sm font-semibold uppercase tracking-[0.32em] text-white/80">
+              <p className="text-sm font-semibold uppercase tracking-[0.32em] text-white/90">
                 Opendoor
               </p>
               <h1 className="truncate px-2 text-center text-3xl font-semibold tracking-tight sm:text-4xl lg:text-[2.75rem]">
                 {homeData.address}
               </h1>
-              <Button variant="secondary" className="group rounded-full bg-white/90 px-5 text-primary shadow-sm hover:bg-white">
+              <Button variant="secondary" className="group rounded-full bg-white px-5 text-foreground shadow-sm hover:bg-white/90">
                 Get listing guidance
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden />
               </Button>
@@ -63,15 +63,13 @@ export default function Home() {
           </div>
         </section>
       )}
-      <div className="relative">
-        <div className="pointer-events-none absolute left-1/2 top-10 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-primary/15 blur-3xl" />
-        <div className="pointer-events-none absolute right-[-120px] top-8 h-[280px] w-[280px] rounded-full bg-emerald-300/25 blur-3xl" />
+      <div className="relative bg-background">
         <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-10 px-6 pb-12 pt-8 lg:px-10">
           <div className="flex justify-center">
             <DashboardNav
               activeTab={activeTab}
               onTabChange={setActiveTab}
-              className="max-w-xl bg-white/95"
+              className="max-w-xl bg-card shadow-sm"
             />
           </div>
           <DashboardTabs

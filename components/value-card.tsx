@@ -60,9 +60,7 @@ export function ValueCard({ address, currentValue, previousValue, condition }: V
     .slice(0, 3);
 
   return (
-    <Card className="relative h-full overflow-hidden border-none bg-gradient-to-br from-[#0D5BFF] via-[#1C6BFF] to-[#021B4A] text-white shadow-xl">
-      <span className="pointer-events-none absolute -left-20 top-[-60px] h-64 w-64 rounded-full bg-white/10 blur-3xl" />
-      <span className="pointer-events-none absolute -bottom-24 right-[-40px] h-64 w-64 rounded-full bg-emerald-300/20 blur-3xl" />
+    <Card className="relative h-full overflow-hidden border-none bg-gradient-to-br from-primary via-[#C01500] to-[#8B0F00] text-white shadow-xl">
 
       <CardHeader className="relative z-10 gap-4">
         <CardDescription className="flex items-center gap-2 text-xs uppercase tracking-[0.28em] text-white/70">
@@ -147,7 +145,7 @@ export function ValueCard({ address, currentValue, previousValue, condition }: V
         <Button
           size="lg"
           variant="secondary"
-          className="rounded-full bg-white px-6 text-[#0D5BFF] hover:bg-white/90"
+          className="rounded-full bg-white px-6 text-primary hover:bg-white/90"
         >
           Update My Value
         </Button>

@@ -55,7 +55,7 @@ export function OpportunityHighlights({
   return (
     <div className="grid gap-4 md:grid-cols-3">
       {highlights.map(({ title, value, detail, icon: Icon, badge, badgeColor }) => (
-        <Card key={title} className="border-none bg-white/85 shadow-lg backdrop-blur">
+        <Card key={title} className="border bg-card shadow-md">
           <CardContent className="space-y-4 p-5">
             <div className="flex items-center justify-between">
               <div className={`inline-flex items-center gap-2 rounded-full ${badgeColor} px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em]`}>

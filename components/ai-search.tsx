@@ -68,7 +68,7 @@ export function AiSearch({ context }: AiSearchProps) {
 
   if (!isClient) {
     return (
-      <Card className="w-full max-w-2xl border border-white/30 bg-white/85 shadow-lg backdrop-blur">
+      <Card className="w-full max-w-2xl border border-white/40 bg-white/95 shadow-lg">
         <CardHeader className="gap-1 pb-3">
           <CardDescription>Loading assistant…</CardDescription>
         </CardHeader>
@@ -77,7 +77,7 @@ export function AiSearch({ context }: AiSearchProps) {
   }
 
   return (
-    <Card className="w-full max-w-2xl border border-white/30 bg-white/95 shadow-lg backdrop-blur">
+    <Card className="w-full max-w-2xl border border-white/40 bg-white shadow-lg">
       <CardContent className="space-y-3 pt-0">
         <form onSubmit={handleSearch} className="flex items-center gap-2">
           <div className="relative flex-1">
@@ -91,7 +91,7 @@ export function AiSearch({ context }: AiSearchProps) {
             />
           </div>
           <Button type="submit" className="rounded-full px-4 py-2 text-sm" disabled={isPending}>
-            {isPending ? <Loader2 className="size-4 animate-spin" aria-hidden /> : 'Ask OpendoorAI'}
+            {isPending ? <Loader2 className="size-4 animate-spin" aria-hidden /> : 'Ask'}
           </Button>
         </form>
         {error && <p className="text-xs text-rose-500">{error}</p>}
