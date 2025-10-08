@@ -4,25 +4,46 @@ import { useMemo, useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import "leaflet/dist/leaflet.css";
 
-const MapContainer = dynamic(() => import("react-leaflet").then((mod) => mod.MapContainer), {
-  ssr: false,
-});
+const MapContainer = dynamic(
+  () => import("react-leaflet").then((mod) => mod.MapContainer),
+  {
+    ssr: false,
+    loading: () => <div className="h-full w-full bg-gray-100 animate-pulse" />,
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+) as any;
 
-const TileLayer = dynamic(() => import("react-leaflet").then((mod) => mod.TileLayer), {
-  ssr: false,
-});
+const TileLayer = dynamic(
+  () => import("react-leaflet").then((mod) => mod.TileLayer),
+  {
+    ssr: false,
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+) as any;
 
-const CircleMarker = dynamic(() => import("react-leaflet").then((mod) => mod.CircleMarker), {
-  ssr: false,
-});
+const CircleMarker = dynamic(
+  () => import("react-leaflet").then((mod) => mod.CircleMarker),
+  {
+    ssr: false,
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+) as any;
 
-const Popup = dynamic(() => import("react-leaflet").then((mod) => mod.Popup), {
-  ssr: false,
-});
+const Popup = dynamic(
+  () => import("react-leaflet").then((mod) => mod.Popup),
+  {
+    ssr: false,
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+) as any;
 
-const Tooltip = dynamic(() => import("react-leaflet").then((mod) => mod.Tooltip), {
-  ssr: false,
-});
+const Tooltip = dynamic(
+  () => import("react-leaflet").then((mod) => mod.Tooltip),
+  {
+    ssr: false,
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+) as any;
 
 import {
   Card,
