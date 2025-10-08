@@ -1,36 +1,163 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Opendoor Home Dashboard
+
+A Next.js prototype dashboard experience for homeowners to monitor home value, condition, comps, and get AI-powered insights.
+
+## Features
+
+- 📊 **Home Value Tracking** - Monitor estimated home value with historical trends
+- 🏠 **Condition Monitoring** - Track home health across key systems (roof, HVAC, etc.)
+- 📍 **Market Insights** - View comparable sales and market data on interactive maps
+- 🤖 **AI Assistant** - Get personalized insights powered by OpenAI
+- 🛠️ **Home Services** - Manage maintenance schedule, budget, and helper team
+- 🏘️ **Neighborhood Updates** - Stay connected with local community updates
+
+## Tech Stack
+
+- **Framework:** Next.js 15.5 (App Router)
+- **UI:** Tailwind CSS + shadcn/ui components
+- **AI:** OpenAI GPT-4o-mini
+- **Maps:** Leaflet with OpenStreetMap
+- **Deployment:** Vercel
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18+
+- npm or yarn
+- OpenAI API key
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/acwints/opendoor.git
+cd opendoor
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Set up environment variables:
+```bash
+# Create .env.local file
+echo "OPENAI_API_KEY=your_openai_api_key_here" > .env.local
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Run the development server:
+```bash
+npm run dev
+```
 
-## Learn More
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-To learn more about Next.js, take a look at the following resources:
+## Environment Variables
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `OPENAI_API_KEY` | OpenAI API key for AI assistant | Yes |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Structure
 
-## Deploy on Vercel
+```
+opendoor/
+├── app/                    # Next.js app directory
+│   ├── api/               # API routes
+│   ├── globals.css        # Global styles
+│   ├── layout.tsx         # Root layout
+│   └── page.tsx           # Home page
+├── components/            # React components
+│   ├── ui/               # shadcn/ui components
+│   └── *.tsx             # Feature components
+├── data/                 # Mock data
+│   └── homeData.ts       # Home data model
+└── lib/                  # Utilities
+    └── utils.ts          # Helper functions
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Design System
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Colors (Opendoor Branding)
+
+- **Primary:** Red (#E01A00) - Opendoor's signature color
+- **Background:** Off-white (#FAFAFA)
+- **Foreground:** Dark gray (#333333)
+
+### Typography
+
+- **Font:** Geist Sans & Geist Mono
+- **Headings:** Bold, uppercase tracking
+- **Body:** Regular weight, comfortable line height
+
+### Components
+
+Built with shadcn/ui for consistency:
+- Cards, Buttons, Progress bars
+- Tables, Sliders
+- Custom map and chart components
+
+## Deployment
+
+### Vercel (Recommended)
+
+1. Push to GitHub
+2. Import project in Vercel
+3. Add environment variables in Vercel dashboard
+4. Deploy
+
+The app is currently deployed at: [https://opendoor-cadqtj2do-winter-advisory.vercel.app](https://opendoor-cadqtj2do-winter-advisory.vercel.app)
+
+## API Routes
+
+### POST /api/search
+
+AI-powered search endpoint for home insights.
+
+**Request:**
+```json
+{
+  "query": "How can I unlock more equity?",
+  "context": {
+    "currentValue": 645000,
+    "comps": [...],
+    "condition": {...}
+  }
+}
+```
+
+**Response:**
+```json
+{
+  "summary": "Overview of opportunities...",
+  "insights": [
+    {"title": "Equity lever", "detail": "..."}
+  ],
+  "recommendations": ["Action 1", "Action 2"]
+}
+```
+
+## Development
+
+```bash
+# Run dev server
+npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
+
+# Lint code
+npm run lint
+```
+
+## License
+
+MIT
+
+## Credits
+
+Built with [Claude Code](https://claude.com/claude-code)
