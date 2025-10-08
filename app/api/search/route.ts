@@ -41,9 +41,9 @@ export async function POST(request: Request) {
   }
 
   try {
-    const completion = await openai.responses.create({
-      model: "gpt-4.1-mini",
-      input: [
+    const completion = await openai.chat.completions.create({
+      model: "gpt-4o-mini",
+      messages: [
         {
           role: "system",
           content:
@@ -54,43 +54,16 @@ export async function POST(request: Request) {
           content: JSON.stringify({ query, context }),
         },
       ],
-      response_format: {
-        type: "json_schema",
-        json_schema: {
-          name: "home_search_response",
-          schema: {
-            type: "object",
-            required: ["summary", "insights", "recommendations"],
-            properties: {
-              summary: { type: "string" },
-              insights: {
-                type: "array",
-                items: {
-                  type: "object",
-                  required: ["title", "detail"],
-                  properties: {
-                    title: { type: "string" },
-                    detail: { type: "string" },
-                  },
-                },
-              },
-              recommendations: {
-                type: "array",
-                items: { type: "string" },
-              },
-            },
-          },
-        },
-      },
+      response_format: { type: "json_object" },
     });
 
-    const outputText = completion.output_text;
+    const content = completion.choices[0]?.message?.content;
 
-    if (!outputText) {
+    if (!content) {
       return NextResponse.json(defaultResponse);
     }
 
-    const parsed = JSON.parse(outputText);
+    const parsed = JSON.parse(content);
     return NextResponse.json(parsed);
   } catch (error) {
     console.error("AI search error", error);
