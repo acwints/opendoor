@@ -68,31 +68,36 @@ export function CareersTabs({ activeTab }: CareersTabsProps) {
         className="space-y-8"
       >
         <div className="p-6 bg-card rounded-lg border border-border shadow-sm">
-          <h2 className="text-2xl font-bold text-foreground mb-4">The Role</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-4">About The Role</h2>
           <p className="text-muted-foreground mb-4">
-            Andrew would work at the intersection of engineering and business impact - building tools and systems that help teams work better and customers engage more deeply. This would involve spending time with customers, sales, and operations teams to understand their workflows, then creating technical solutions that drive measurable improvements.
+            Andrew would build products and systems that help Opendoor&apos;s teams and customers work better together. He&apos;d partner deeply with sales, operations, and customer-facing teams to understand their challenges, then architect and ship solutions that meaningfully improve productivity, revenue outcomes, or customer experience.
+          </p>
+          <p className="text-muted-foreground mb-4">
+            This would be ideal for someone who doesn&apos;t wait for a spec, loves zero-to-one ambiguity, and wants to ship systems that actually get used daily by people who depend on them. He&apos;d work directly with internal stakeholders and customers to explore what&apos;s possible and ensure the products built translate directly to realized business value.
           </p>
           <p className="text-muted-foreground">
-            He&apos;d spend more time building systems that enable others (customer tools, internal dashboards, data pipelines) than managing campaigns or content. The focus would be on creating leverage through software rather than day-to-day operations.
+            The work would span customer-facing experiences, internal tools that make teams more effective, data infrastructure that surfaces insights, and systems that create leverage across the organization.
           </p>
         </div>
 
         <div className="p-6 bg-card rounded-lg border border-border shadow-sm">
           <h2 className="text-2xl font-bold text-foreground mb-4">What Andrew Would Build</h2>
           <div className="space-y-3 text-muted-foreground">
-            <p><span className="font-semibold text-foreground">Customer-facing tools:</span> Dashboards showing home value trends, personalized insights, notification systems that keep sellers engaged</p>
-            <p><span className="font-semibold text-foreground">Internal systems:</span> Tools that help sales and ops teams work more effectively - CRM integrations, workflow automation, reporting that surfaces the right data at the right time</p>
-            <p><span className="font-semibold text-foreground">Data infrastructure:</span> Pipelines and analytics that turn raw data into actionable insights for business teams</p>
+            <p><span className="font-semibold text-foreground">High-leverage applications:</span> Customer dashboards, seller insights, notification systems - experiences that make customers more engaged and informed about their home&apos;s value and market dynamics</p>
+            <p><span className="font-semibold text-foreground">Internal systems & tools:</span> Sales enablement platforms, operations automation, CRM integrations, reporting dashboards that make GTM teams significantly more productive</p>
+            <p><span className="font-semibold text-foreground">Data & measurement frameworks:</span> Analytics pipelines, performance tracking systems, knowledge bases that turn raw data into actionable insights for stakeholders</p>
+            <p><span className="font-semibold text-foreground">Platform experiences:</span> APIs, integrations, and systems that create interoperability and leverage across products</p>
           </div>
         </div>
 
         <div className="p-6 bg-card rounded-lg border border-border shadow-sm">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Potential Success Metrics</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-4">How Success Would Be Measured</h2>
           <ul className="space-y-3 list-disc list-inside text-muted-foreground">
-            <li>Customer engagement improvements and lifetime value growth</li>
-            <li>Time savings and efficiency gains for internal teams</li>
-            <li>Adoption and usage of data/insights by stakeholders</li>
-            <li>Speed from idea to shipped solution</li>
+            <li>Measurable improvements in customer engagement, retention, and lifetime value</li>
+            <li>Productivity gains and time savings for internal teams using the tools</li>
+            <li>Business impact: revenue outcomes, operational efficiency, customer satisfaction</li>
+            <li>Adoption and daily usage - building things people actually depend on</li>
+            <li>Speed and iteration velocity - shipping prototypes to production quickly</li>
           </ul>
         </div>
       </div>
@@ -106,75 +111,82 @@ export function CareersTabs({ activeTab }: CareersTabsProps) {
         className="space-y-8"
       >
         <div className="p-6 bg-card rounded-lg border border-border shadow-sm">
-          <h2 className="text-2xl font-bold text-primary mb-4">Andrew Would Spend More Time</h2>
+          <h2 className="text-2xl font-bold text-primary mb-4">In This Role, Andrew Would</h2>
           <ul className="space-y-4">
             <li className="flex items-start">
               <CheckIcon className="text-primary mr-3 flex-shrink-0 mt-1" />
               <div>
-                <h3 className="font-semibold text-foreground">Building Customer Experiences</h3>
-                <p className="text-muted-foreground">Creating tools that increase engagement and retention. Seller dashboards, personalized insights, proactive notifications - things that make customers want to come back.</p>
+                <h3 className="font-semibold text-foreground">Enable Growth & GTM Teams</h3>
+                <p className="text-muted-foreground">Build systems that enable marketers to run better campaigns, help sales teams close more deals, and create the GTM playbook through tools and automation. Make growth teams more effective through better data, workflows, and leverage.</p>
               </div>
             </li>
             <li className="flex items-start">
               <CheckIcon className="text-primary mr-3 flex-shrink-0 mt-1" />
               <div>
-                <h3 className="font-semibold text-foreground">Enabling Internal Teams</h3>
-                <p className="text-muted-foreground">Building systems that make sales, ops, and customer success teams more effective. Integrations, automation, dashboards that surface insights when needed.</p>
+                <h3 className="font-semibold text-foreground">Partner Deeply with Teams</h3>
+                <p className="text-muted-foreground">Work closely with sales, marketing, and operations teams to uncover high-impact problems and architect solutions. Embed with teams to understand their workflows, pain points, and opportunities.</p>
               </div>
             </li>
             <li className="flex items-start">
               <CheckIcon className="text-primary mr-3 flex-shrink-0 mt-1" />
               <div>
-                <h3 className="font-semibold text-foreground">Working with Data</h3>
-                <p className="text-muted-foreground">Building infrastructure that turns data into insights. Analytics pipelines, performance tracking, trend analysis that helps inform decisions.</p>
+                <h3 className="font-semibold text-foreground">Build & Ship End-to-End</h3>
+                <p className="text-muted-foreground">Own problems from discovery through deployment. Prototype quickly, iterate based on real usage, and ship systems that people actually use daily. Bias toward action and comfortable with ambiguity.</p>
               </div>
             </li>
             <li className="flex items-start">
               <CheckIcon className="text-primary mr-3 flex-shrink-0 mt-1" />
               <div>
-                <h3 className="font-semibold text-foreground">Customer & Team Interaction</h3>
-                <p className="text-muted-foreground">Spending time with customers and internal teams to understand their workflows. Building based on direct observation and feedback rather than assumptions.</p>
+                <h3 className="font-semibold text-foreground">Drive Platform Leverage</h3>
+                <p className="text-muted-foreground">Work closely with product and engineering teams to inform capabilities, close gaps, and influence platform evolution. Create interoperability and systems thinking across tools.</p>
               </div>
             </li>
             <li className="flex items-start">
               <CheckIcon className="text-primary mr-3 flex-shrink-0 mt-1" />
               <div>
-                <h3 className="font-semibold text-foreground">Rapid Prototyping & Iteration</h3>
-                <p className="text-muted-foreground">Moving fast from idea to working prototype. Getting something in users&apos; hands quickly, gathering feedback, iterating based on what works.</p>
+                <h3 className="font-semibold text-foreground">Synthesize & Feed Back Insights</h3>
+                <p className="text-muted-foreground">Learn from real usage patterns and feed insights back to product, data, and engineering teams. Shape the future of what gets built based on frontline experience.</p>
+              </div>
+            </li>
+            <li className="flex items-start">
+              <CheckIcon className="text-primary mr-3 flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="font-semibold text-foreground">Scale Knowledge & Patterns</h3>
+                <p className="text-muted-foreground">Contribute to documentation, design patterns, and technical resources that help scale capabilities across teams. Make the hard-won lessons reusable.</p>
               </div>
             </li>
           </ul>
         </div>
 
         <div className="p-6 bg-card rounded-lg border border-border shadow-sm">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Andrew Would Spend Less Time</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-4">Less Focus On</h2>
           <ul className="space-y-4">
             <li className="flex items-start">
               <XIcon className="text-muted-foreground mr-3 flex-shrink-0 mt-1" />
               <div>
-                <h3 className="font-semibold text-foreground">Campaign & Content Management</h3>
-                <p className="text-muted-foreground">Less focus on managing content calendars, writing marketing copy, or running ad campaigns. More focused on building the systems that support those efforts.</p>
+                <h3 className="font-semibold text-foreground">Marketing Operations</h3>
+                <p className="text-muted-foreground">Less time managing content calendars, writing copy, or running campaigns. More time building the systems that enable those teams to work better.</p>
               </div>
             </li>
             <li className="flex items-start">
               <XIcon className="text-muted-foreground mr-3 flex-shrink-0 mt-1" />
               <div>
-                <h3 className="font-semibold text-foreground">Acquisition & Lead Gen</h3>
-                <p className="text-muted-foreground">Less emphasis on SEO strategy, paid acquisition, or top-of-funnel tactics. More focus on engagement, retention, and value after someone becomes a customer.</p>
+                <h3 className="font-semibold text-foreground">Top-of-Funnel Acquisition</h3>
+                <p className="text-muted-foreground">Less emphasis on SEO, paid ads, or lead generation tactics. More focus on what happens after someone engages - retention, value delivery, lifetime impact.</p>
               </div>
             </li>
             <li className="flex items-start">
               <XIcon className="text-muted-foreground mr-3 flex-shrink-0 mt-1" />
               <div>
-                <h3 className="font-semibold text-foreground">Core Product Features</h3>
-                <p className="text-muted-foreground">Different from pure product engineering. Every project would connect back to business impact and team enablement rather than building features in isolation.</p>
+                <h3 className="font-semibold text-foreground">Isolated Product Features</h3>
+                <p className="text-muted-foreground">Different from building features in a vacuum. Every project would have direct business context, user feedback loops, and measurable impact on team or customer outcomes.</p>
               </div>
             </li>
             <li className="flex items-start">
               <XIcon className="text-muted-foreground mr-3 flex-shrink-0 mt-1" />
               <div>
-                <h3 className="font-semibold text-foreground">Large Team Management</h3>
-                <p className="text-muted-foreground">Leading through building and technical direction rather than managing a large team. Hands-on role focused on shipping rather than delegation.</p>
+                <h3 className="font-semibold text-foreground">Team/Process Management</h3>
+                <p className="text-muted-foreground">Leading through building, technical direction, and influence rather than managing people or coordinating large teams. Hands-on role where shipping is the primary mode of leadership.</p>
               </div>
             </li>
           </ul>

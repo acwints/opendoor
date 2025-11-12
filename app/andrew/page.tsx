@@ -13,7 +13,7 @@ export default function AndrewPage() {
   const [activeTab, setActiveTab] = useState<TabValue>("opportunities");
   const [careersTab, setCareersTab] = useState<CareersTabKey>("role");
   const [isChatOpen, setIsChatOpen] = useState(false);
-  const [jobTitle, setJobTitle] = useState('Engineering & Product Builder');
+  const [jobTitle, setJobTitle] = useState('GTM Innovation Architect');
   const [isRemixing, setIsRemixing] = useState(false);
 
   const tabs = [

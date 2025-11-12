@@ -14,7 +14,7 @@ export const InteractiveChat: React.FC<InteractiveChatProps> = ({ onClose }) => 
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       role: MessageRole.MODEL,
-      text: "Hi! I can help explore how Andrew might fit at Opendoor. Ask about what he'd be building, how he'd spend his time, or what trade-offs would make sense for him.",
+      text: "Hi! I can help explore how Andrew might fit on the team at Opendoor. Ask about what he'd be building, how he'd spend his time, or what trade-offs would make sense for him.",
     },
   ]);
   const [userInput, setUserInput] = useState('');

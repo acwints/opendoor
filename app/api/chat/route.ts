@@ -3,31 +3,39 @@ import OpenAI from 'openai';
 
 const JOB_DESCRIPTION_CONTEXT = `
 Company: Opendoor - a real estate technology company that simplifies buying and selling homes.
-Focus: Exploring how Andrew would fit in a role building tools and systems that support teams and customers.
 
-Role Summary:
-Andrew would work at the intersection of engineering and business impact. He'd spend time with customers, sales, and operations teams to understand their workflows, then build technical solutions that drive measurable improvements. This means creating customer-facing tools, internal systems, and data infrastructure that help people work better and engage more deeply.
+About The Role:
+Andrew would build products and systems that help Opendoor's teams and customers work better together. He'd partner deeply with sales, operations, and customer-facing teams to understand their challenges, then architect and ship solutions that meaningfully improve productivity, revenue outcomes, or customer experience.
 
-The work would lean more toward building systems that enable others (dashboards, automation, analytics) than managing content calendars or running acquisition campaigns. Examples: creating tools that make sales teams more effective, building features that increase customer engagement, or developing data pipelines that surface actionable insights.
+This would be ideal for someone who doesn't wait for a spec, loves zero-to-one ambiguity, and wants to ship systems that actually get used daily by people who depend on them. He'd work directly with internal stakeholders and customers to explore what's possible and ensure the products built translate directly to realized business value.
 
-Potential Success Metrics:
-- Customer engagement and lifetime value improvements
-- Team efficiency gains from tools built
-- Data adoption and usage by stakeholders
-- Speed from idea to shipped solution
+The work would span customer-facing experiences, internal tools that make teams more effective, data infrastructure that surfaces insights, and systems that create leverage across the organization.
 
-Andrew Would Spend More Time:
-- Building customer experiences: seller dashboards, personalized insights, engagement tools
-- Enabling internal teams: CRM integrations, workflow automation, reporting that surfaces insights
-- Working with data: analytics pipelines, performance tracking, trend analysis
-- Customer & team interaction: understanding workflows through direct observation and feedback
-- Rapid prototyping: moving fast from idea to working solution, iterating based on what works
+What Andrew Would Build:
+- High-leverage applications: customer dashboards, seller insights, notification systems that make customers more engaged
+- Internal systems & tools: sales enablement, operations automation, CRM integrations, reporting dashboards
+- Data & measurement frameworks: analytics pipelines, performance tracking, knowledge bases that surface insights
+- Platform experiences: APIs, integrations, systems that create interoperability
 
-Andrew Would Spend Less Time:
-- Campaign & content management: less focus on content calendars, marketing copy, or ad campaigns
-- Acquisition & lead gen: less emphasis on SEO, paid acquisition, or top-of-funnel tactics
-- Core product features: different from building features in isolation - every project connects to business impact
-- Large team management: leading through building and technical direction rather than managing a large team
+In This Role, Andrew Would:
+- Partner deeply with teams to uncover high-impact problems and architect solutions
+- Build & ship end-to-end - own problems from discovery through deployment
+- Drive platform leverage by working with product teams to inform capabilities and close gaps
+- Synthesize insights from real usage and feed them back to shape future development
+- Scale knowledge through documentation, patterns, and technical resources
+
+Less Focus On:
+- Marketing operations: managing content calendars, writing copy, running campaigns
+- Top-of-funnel acquisition: SEO, paid ads, lead generation tactics
+- Isolated product features: different from building features in a vacuum - every project has business context
+- Team/process management: leading through building and technical direction, not managing people
+
+Success Would Be Measured By:
+- Measurable improvements in customer engagement, retention, and lifetime value
+- Productivity gains and time savings for internal teams
+- Business impact: revenue outcomes, operational efficiency, customer satisfaction
+- Adoption and daily usage - building things people actually depend on
+- Speed and iteration velocity - shipping prototypes to production quickly
 `;
 
 const JOB_TITLE_SUMMARY = `Exploring how Andrew would fit at Opendoor in a role focused on building tools and systems that support teams and customers. The work would involve creating customer-facing experiences, internal tools for business teams, and data infrastructure - more about building systems that create leverage than managing campaigns or day-to-day operations.`;

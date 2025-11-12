@@ -146,7 +146,15 @@ export function OpportunitiesContent() {
     setAiLoading(index);
     try {
       const primaryField = getPrimaryField(opportunity);
-      const query = `What is the next step for: ${primaryField}? Provide a concise, actionable recommendation.`;
+      const query = `Based on this opportunity: "${primaryField}", generate an innovative and specific next step for Andrew at Opendoor. 
+
+Think about:
+- How this connects to Opendoor's mission of simplifying home buying/selling
+- What unique technical or product solution could create leverage
+- How to turn this into a concrete prototype or system that drives measurable impact
+- What would make this a compelling portfolio piece or talking point
+
+Provide one bold, specific, actionable recommendation that demonstrates strategic thinking and technical creativity. Make it exciting and concrete, not generic.`;
       
       const response = await fetch('/api/search', {
         method: 'POST',
