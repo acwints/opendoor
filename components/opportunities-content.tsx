@@ -267,9 +267,12 @@ export function OpportunitiesContent() {
                     return null;
                   }
 
+                  // Transform field name: Description -> Context
+                  const displayKey = key.toLowerCase() === "description" ? "Context" : key;
+
                   return (
                     <div key={key} className="text-sm">
-                      <span className="font-medium text-muted-foreground text-xs uppercase tracking-wide">{key}:</span>{" "}
+                      <span className="font-medium text-muted-foreground text-xs uppercase tracking-wide">{displayKey}:</span>{" "}
                       <span className="text-foreground">
                         {isHyperlink(value) ? (
                           value.url ? (
