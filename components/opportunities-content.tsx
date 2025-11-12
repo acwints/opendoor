@@ -146,13 +146,13 @@ export function OpportunitiesContent() {
     setAiLoading(index);
     try {
       const primaryField = getPrimaryField(opportunity);
-      const query = `Based on this opportunity: "${primaryField}", generate an innovative and specific next step for Andrew at Opendoor. 
+      const query = `Based on this opportunity: "${primaryField}", generate an innovative and specific next step for Opendoor to prioritize. 
 
 Think about:
 - How this connects to Opendoor's mission of simplifying home buying/selling
 - What unique technical or product solution could create leverage
 - How to turn this into a concrete prototype or system that drives measurable impact
-- What would make this a compelling portfolio piece or talking point
+- What would make the biggest business impact or unlock new capabilities
 
 Provide one bold, specific, actionable recommendation that demonstrates strategic thinking and technical creativity. Make it exciting and concrete, not generic.`;
       
