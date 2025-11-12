@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
         messages: [
           {
             role: 'user',
-            content: `Based on the following job summary, generate one creative and compelling alternative job title. Return ONLY the job title itself, without any introduction, punctuation, or quotation marks.\n\nJob Summary:\n${JOB_TITLE_SUMMARY}`
+            content: `Based on the following job summary, generate one creative and compelling alternative job title. The title should be in the style of engineering/product roles like "Sr. GTM Engineer", "Forward Deployed Engineer", "Product Engineer", "GTM Innovation Architect", or similar technical builder roles. Return ONLY the job title itself, without any introduction, punctuation, or quotation marks.\n\nJob Summary:\n${JOB_TITLE_SUMMARY}`
           }
         ],
         temperature: 0.9,
