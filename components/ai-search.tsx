@@ -6,6 +6,10 @@ import { ArrowUpRight, Loader2, Search } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader } from '@/components/ui/card'
 
+const defaultResponse = {
+  summary: "Here's a quick overview of opportunities around your home. You can refinance to unlock equity, explore mid-grade upgrades, and time a listing when demand peaks.",
+}
+
 type Insight = {
   title: string
   detail: string
@@ -40,17 +44,19 @@ export function AiSearch({ context }: AiSearchProps) {
 
   const handleSearch = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    if (!query.trim()) {
+    const trimmedQuery = query.trim()
+    if (!trimmedQuery) {
       setError('Ask something about your home or the market to continue.')
       return
     }
     setError(null)
+    console.log('Submitting query:', trimmedQuery)
     startTransition(async () => {
       try {
         const response = await fetch('/api/search', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ query, context }),
+          body: JSON.stringify({ query: trimmedQuery, context }),
         })
 
         if (!response.ok) {
@@ -58,9 +64,10 @@ export function AiSearch({ context }: AiSearchProps) {
         }
 
         const data: AiSearchResult = await response.json()
+        console.log('Received response:', data)
         setResult(data)
       } catch (err) {
-        console.error(err)
+        console.error('Search error:', err)
         setError('Something went wrong reaching the Opendoor assistant. Try again in a moment.')
       }
     })
@@ -84,6 +91,7 @@ export function AiSearch({ context }: AiSearchProps) {
             <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" aria-hidden />
             <input
               id="ai-search"
+              type="text"
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               placeholder={placeholderQuery}
@@ -95,11 +103,16 @@ export function AiSearch({ context }: AiSearchProps) {
           </Button>
         </form>
         {error && <p className="text-xs text-rose-500">{error}</p>}
+        {result && result.summary === defaultResponse.summary && (
+          <p className="text-xs text-amber-600 bg-amber-50 border border-amber-200 rounded-md p-2">
+            ⚠️ AI responses require an OpenAI API key. Currently showing default response. Check server logs for your query.
+          </p>
+        )}
         {result && (
-          <div className="space-y-3 rounded-2xl border border-border/40 bg-white/90 p-4 shadow-sm">
+          <div className="space-y-3 rounded-2xl border border-border/40 bg-white/90 p-4 shadow-sm min-h-0">
             <div className="space-y-1">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Summary</p>
-              <p className="text-sm leading-relaxed text-muted-foreground">{result.summary}</p>
+              <p className="text-sm leading-relaxed text-muted-foreground whitespace-normal break-words">{result.summary}</p>
             </div>
             {result.insights.length > 0 && (
               <div className="space-y-1">
@@ -107,8 +120,8 @@ export function AiSearch({ context }: AiSearchProps) {
                 <ul className="space-y-1 text-sm text-muted-foreground">
                   {result.insights.map((insight) => (
                     <li key={insight.title} className="flex items-start gap-2">
-                      <span className="mt-1 size-1.5 rounded-full bg-primary" />
-                      <span>
+                      <span className="mt-1 size-1.5 rounded-full bg-primary shrink-0" />
+                      <span className="whitespace-normal break-words">
                         <span className="font-medium text-foreground">{insight.title}: </span>
                         {insight.detail}
                       </span>
@@ -123,8 +136,8 @@ export function AiSearch({ context }: AiSearchProps) {
                 <ul className="space-y-1 text-sm text-muted-foreground">
                   {result.recommendations.map((recommendation) => (
                     <li key={recommendation} className="flex items-start gap-2">
-                      <ArrowUpRight className="mt-0.5 size-4 text-primary" aria-hidden />
-                      <span>{recommendation}</span>
+                      <ArrowUpRight className="mt-0.5 size-4 text-primary shrink-0" aria-hidden />
+                      <span className="whitespace-normal break-words">{recommendation}</span>
                     </li>
                   ))}
                 </ul>

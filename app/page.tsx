@@ -32,7 +32,7 @@ export default function Home() {
   return (
     <main className="relative min-h-screen bg-background">
       {coverImage && (
-        <section className="relative h-[360px] w-full overflow-hidden sm:h-[400px] lg:h-[440px]">
+        <section className="relative min-h-[360px] w-full overflow-hidden sm:min-h-[400px] lg:min-h-[440px]">
           <Image
             src={coverImage.url}
             alt={coverImage.alt}
@@ -42,12 +42,9 @@ export default function Home() {
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-transparent" />
-          <div className="relative z-10 mx-auto flex h-full w-full max-w-6xl flex-col justify-between px-6 py-6 lg:px-10 lg:py-8">
-            <div className="grid grid-cols-[auto_1fr_auto] items-center gap-3 text-white">
-              <p className="text-sm font-semibold uppercase tracking-[0.32em] text-white/90">
-                Opendoor
-              </p>
-              <h1 className="truncate px-2 text-center text-3xl font-semibold tracking-tight sm:text-4xl lg:text-[2.75rem]">
+          <div className="relative z-10 mx-auto flex h-full w-full max-w-6xl flex-col px-6 py-6 lg:px-10 lg:py-8">
+            <div className="grid grid-cols-[1fr_auto] items-center gap-3 text-white pt-4 mb-12">
+              <h1 className="truncate text-center text-3xl font-semibold tracking-tight sm:text-4xl lg:text-[2.75rem]">
                 {homeData.address}
               </h1>
               <Button variant="secondary" className="group rounded-full bg-white px-5 text-foreground shadow-sm hover:bg-white/90">

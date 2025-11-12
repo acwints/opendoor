@@ -25,7 +25,11 @@ const openai = process.env.OPENAI_API_KEY
   : null;
 
 export async function POST(request: Request) {
-  const { query, context } = await request.json().catch(() => ({ query: "", context: {} }));
+  const body = await request.json().catch(() => ({ query: "", context: {} }));
+  const { query, context } = body;
+
+  console.log("Received query:", query);
+  console.log("Has OpenAI API key:", !!process.env.OPENAI_API_KEY);
 
   if (!query || typeof query !== "string") {
     return NextResponse.json(
@@ -37,6 +41,10 @@ export async function POST(request: Request) {
   }
 
   if (!openai) {
+    // Return default response but log that we're using it
+    console.log("⚠️ No OpenAI API key configured. Returning default response.");
+    console.log("User's query was:", query);
+    console.log("To enable AI responses, set OPENAI_API_KEY in .env.local");
     return NextResponse.json(defaultResponse);
   }
 
